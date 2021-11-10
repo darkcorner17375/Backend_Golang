@@ -5,14 +5,14 @@ WORKDIR /app
 # Force the go compiler to use modules
 ENV GO111MODULE=on
 # We want to populate the module cache based on the go.{mod,sum} files.
-COPY go.mod ./
-COPY go.sum ./
+COPY go.mod .
+COPY go.sum .
 RUN go mod download
 
 # This image builds the weavaite server
 FROM build_base AS server_builder
 # Here we copy the rest of the source code
-COPY *.go ./
+COPY . .
 ENV GOOS=linux
 ENV GOARCH=amd64
 RUN go build -o /demo -tags netgo -ldflags '-w -extldflags "-static"' .

@@ -55,7 +55,8 @@ func main() {
 	{
 		checkRoutes.GET("/", func(c *gin.Context) {
 			c.JSON(200, gin.H{
-				"message": "快逃阿!!!!!!!",
+				"message":     "go live successful!!!!!!!",
+				"Docker Test": "OK!!!!!!!",
 			})
 		})
 	}
