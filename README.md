@@ -18,3 +18,4 @@ Docker Test: "OK!!!!!!!",
 message: "Successful Go-Lives!!!!!!"
 }
 ```
+<img src="/result/health.png" />
