@@ -27,10 +27,7 @@ var (
 
 func main() {
 	defer config.DBdisconnection(db)
-	httpPort := os.Getenv("HTTP_PORT")
-	if httpPort == "" {
-		httpPort = "8080"
-	}
+
 	r := gin.Default()
 
 	authRoutes := r.Group("api/auth")
@@ -63,5 +60,6 @@ func main() {
 		})
 	}
 
-	r.Run(":" + httpPort)
+	port := os.Getenv("PORT")
+	r.Run(":" + port)
 }
