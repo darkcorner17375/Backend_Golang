@@ -48,5 +48,14 @@ func main() {
 		todoRoutes.DELETE("/:id", todoController.Delete)
 	}
 
+	checkRoutes := r.Group("api/check")
+	{
+		checkRoutes.GET("health", func(c *gin.Context) {
+			c.JSON(200, gin.H{
+				"message": "Test OK!!",
+			})
+		})
+	}
+
 	r.Run()
 }
