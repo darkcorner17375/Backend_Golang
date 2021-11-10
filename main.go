@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/ed/gaintime/config"
 	"github.com/ed/gaintime/controller"
 	"github.com/ed/gaintime/middleware"
@@ -25,6 +27,10 @@ var (
 
 func main() {
 	defer config.DBdisconnection(db)
+	httpPort := os.Getenv("HTTP_PORT")
+	if httpPort == "" {
+		httpPort = "8080"
+	}
 	r := gin.Default()
 
 	authRoutes := r.Group("api/auth")
@@ -57,5 +63,5 @@ func main() {
 		})
 	}
 
-	r.Run()
+	r.Run(":" + httpPort)
 }
