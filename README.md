@@ -14,7 +14,6 @@ https://golang-gaintime.herokuapp.com/health/
 Response (Status: 200)
 ```
 {
-Docker Test: "OK!!!!!!!",
 message: "Successful Go-Lives!!!!!!"
 }
 ```
